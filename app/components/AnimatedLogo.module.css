@@ -1,0 +1,71 @@
+
+.logo {
+  /* Reserve space so the header never shifts */
+  width: 12rem;
+  height: 2.5rem;
+
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--logo-color);
+
+  font: inherit;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-align: left;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.name {
+  display: inline-flex;
+  flex: 0 0 auto;
+}
+
+.initial {
+  flex: 0 0 auto;
+}
+
+.suffix {
+  display: inline-block;
+  width: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition:
+    width 450ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 200ms ease;
+}
+
+.first {
+  transition-delay: 0ms;
+}
+
+.last {
+  transition-delay: 70ms;
+}
+
+.logo[data-expanded="true"] .first {
+  width: 2.75em;
+  opacity: 1;
+}
+
+.logo[data-expanded="true"] .last {
+  width: 3.15em;
+  opacity: 1;
+}
+
+.logo:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+  border-radius: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .suffix {
+    transition: none;
+  }
+}
